@@ -41,14 +41,14 @@ int leerLinea(char *buf, size_t n) {
     if (!fgets(buf, (int)n, stdin)) return 0;
     size_t len = strlen(buf);
     if (len && buf[len-1] == '\n') buf[len-1] = '\0';
-    return 1;
+     return 1;
 }
 
 // ---------- persistencia ----------
 int guardarVehiculos() {
     FILE *f = fopen(FILE_VEH, "w");
     if (!f) return 0;
-    // Formato separado por |
+
     for (int i = 0; i < totalVehiculos; i++) {
         Vehiculo *v = &vehiculos[i];
         fprintf(f, "%s|%s|%s|%s|%.6f|%.6f|%.6f|%d|%.6f|%.6f|%d|%.6f|%d|%d\n",
@@ -65,7 +65,7 @@ int guardarVehiculos() {
 
 int cargarVehiculos() {
     FILE *f = fopen(FILE_VEH, "r");
-    if (!f) return 0; // no es error, puede no existir la primera vez
+    if (!f) return 0;
     totalVehiculos = 0;
 
     while (!feof(f) && totalVehiculos < MAX) {
@@ -167,7 +167,7 @@ void crearVehiculo() {
     printf("Cada cuantos km se hace mantenimiento: "); scanf("%d", &v.kmMantenimiento);
     printf("Costo del vehiculo: ");     scanf("%f", &v.costoVehiculo);
     printf("Vida util del vehiculo (anios): "); scanf("%d", &v.vidaUtil);
-    printf("Promedio km por agno: ");   scanf("%d", &v.kmAnuales);
+    printf("Promedio km por ano: ");   scanf("%d", &v.kmAnuales);
     // limpiar \n pendiente
     int c; while ((c = getchar()) != '\n' && c != EOF) {}
 
