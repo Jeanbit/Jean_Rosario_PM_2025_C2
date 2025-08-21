@@ -1,7 +1,3 @@
-// gestion_vehiculos.c
-// Programa de gestion de gastos de vehiculo por kilometros con persistencia
-// NOTA: sin acentos en comentarios por preferencia del usuario
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
